@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, inject } from '@angular/core';
 import { Course } from '../model/course';
+import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -8,16 +10,20 @@ import { Course } from '../model/course';
 })
 export class CoursesComponent implements OnInit {
 
-  public courses: Course[] = [
-    {
-      _id: '1', name: 'Angular', category: 'Front-end'
-    }
-  ];
+  private _courseService = inject(CoursesService);
+  // private _httpCliente = inject(HttpClient)
+
+  public courses: Course[] = [];
+
   public displayedColumns = ['name', 'category'];
 
-  constructor() { }
+  constructor() {
 
-  ngOnInit(): void {
+  }
+
+  public ngOnInit(): void {
+
+    this.courses = this._courseService.list();
   }
 
 }
