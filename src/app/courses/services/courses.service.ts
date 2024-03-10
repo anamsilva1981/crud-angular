@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 import { Course } from '../model/course';
 
 @Injectable({
@@ -6,14 +7,10 @@ import { Course } from '../model/course';
 })
 export class CoursesService {
 
+  private _httpCliente = inject(HttpClient)
+  private readonly api = '/assets/cursos.json';
 
-  constructor() { }
-
-  public list(): Course[] { 
-    return [
-      {
-        _id: '1', name: 'Angular', category: 'Front-end'
-      }
-    ];
+  public list() {
+    return this._httpCliente.get<Course[]>(this.api)
   }
 }
