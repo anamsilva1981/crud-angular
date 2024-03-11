@@ -16,7 +16,7 @@ export class CoursesComponent implements OnInit {
   public dialog = inject(MatDialog);
 
   public courses$!: Observable<Course[]>;
-  public displayedColumns = ['_id', 'name', 'category'];
+  public displayedColumns = ['name', 'category'];
 
   public ngOnInit(): void {
     this.courses$ = this._courseService.list().pipe(first(),
