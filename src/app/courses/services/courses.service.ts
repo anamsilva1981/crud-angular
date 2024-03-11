@@ -8,7 +8,7 @@ import { Course } from '../model/course';
 export class CoursesService {
 
   private _httpCliente = inject(HttpClient)
-  private readonly api = '/assets/cursos.json';
+  private readonly api = 'api/courses';
 
   public list() {
     return this._httpCliente.get<Course[]>(this.api)
