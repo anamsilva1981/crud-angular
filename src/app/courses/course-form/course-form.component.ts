@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-course-form',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseFormComponent implements OnInit {
 
-  constructor() { }
+  private _fb = inject(FormBuilder);
 
-  ngOnInit(): void {
+
+  public form!: FormGroup;
+
+
+  public ngOnInit(): void {
+
+    this.form = this._fb.group({
+      name: [null],
+      category: [null],
+    })
   }
 
 }
