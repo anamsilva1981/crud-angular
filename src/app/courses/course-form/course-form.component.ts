@@ -22,8 +22,8 @@ export class CourseFormComponent implements OnInit {
   public ngOnInit(): void {
 
     this.form = this._fb.group({
-      name: [null],
-      category: [null],
+      name: [''],
+      category: [''],
     })
   }
 
