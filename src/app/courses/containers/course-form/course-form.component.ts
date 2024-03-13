@@ -1,8 +1,8 @@
+import { Location } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { CoursesService } from '../services/courses.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Location } from '@angular/common';
+import { CoursesService } from '../../services/courses.service';
 
 @Component({
   selector: 'app-course-form',
@@ -17,7 +17,6 @@ export class CourseFormComponent implements OnInit {
   private _location = inject(Location)
 
   public form!: FormGroup;
-
 
   public ngOnInit(): void {
 

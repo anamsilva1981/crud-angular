@@ -12,7 +12,10 @@ export class CoursesService {
   private readonly api = 'api/courses';
 
   public list() {
-    return this._httpCliente.get<Course[]>(this.api).pipe(first(), delay(1000))
+    return this._httpCliente.get<Course[]>(this.api)
+    .pipe(first(), 
+    // delay(1000)
+    )
   }
 
   public save(record: Course){
