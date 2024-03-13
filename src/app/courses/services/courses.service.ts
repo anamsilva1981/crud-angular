@@ -40,6 +40,10 @@ export class CoursesService {
     return this._httpCliente.put<Course>(`${this.api}/${record._id}`, record).pipe(first());    
   }
 
+  public remove(id: string){
+    return this._httpCliente.delete(`${this.api}/${id}`).pipe(first());    
+  }
+
 }
 
 

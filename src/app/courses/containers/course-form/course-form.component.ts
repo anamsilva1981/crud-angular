@@ -44,21 +44,16 @@ export class CourseFormComponent implements OnInit {
     this.onCancel();
   }
 
-  // onSubmit() {
-  //   this.service.save(this.form.value)
-  //     .subscribe(result => this.onSuccess(), error => this.onError());
-  // }
-
   public onCancel() {
     this._location.back();
   }
 
   public onSucess() {
-    this._snackBar.open('Curso salvo com sucess', '', { duration: 5000 });
+    this._snackBar.open('Curso salvo com sucess', '', { duration: 2000 });
   }
 
   private onError() {
-    this._snackBar.open('Erro ao salvar curso', '', { duration: 5000 });
+    this._snackBar.open('Erro ao salvar curso', '', { duration: 2000 });
   }
 
 }
